@@ -21,9 +21,9 @@ export const Home = () => {
     dispatch(setCategoryId(id));
   };
 
+  const sortBy = sort.sortProperty;
+  console.log(sortProperty);
   const getPizzas = async () => {
-    const sortBy = sort.sortProperty;
-    console.log(sortProperty);
     dispatch(fetchPizzas({ sortBy, categoryId }));
   };
 
