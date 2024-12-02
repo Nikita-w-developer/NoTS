@@ -21,11 +21,15 @@ export const Home = () => {
     dispatch(setCategoryId(id));
   };
 
-  React.useEffect(() => {
+  const getPizzas = async () => {
     const sortProperty = sort.sortProperty;
     console.log(sortProperty);
     dispatch(fetchPizzas({ sortProperty, categoryId }));
-  }, [categoryId, sortProperty]);
+  };
+
+  React.useEffect(() => {
+    getPizzas();
+  }, [categoryId, sort.sortProperty]);
 
   const skeleton = [...new Array(6)].map((_, i) => <Skeleton key={i} />);
   const pizzas = items
