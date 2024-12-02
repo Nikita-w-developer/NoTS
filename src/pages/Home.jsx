@@ -22,9 +22,9 @@ export const Home = () => {
   };
 
   const getPizzas = async () => {
-    const sortProperty = sort.sortProperty;
+    const sortBy = sort.sortProperty;
     console.log(sortProperty);
-    dispatch(fetchPizzas({ sortProperty, categoryId }));
+    dispatch(fetchPizzas({ sortBy, categoryId }));
   };
 
   React.useEffect(() => {

@@ -9,10 +9,10 @@ const initialState = {
 export const fetchPizzas = createAsyncThunk(
   "users/fetchPizzaStatus",
   async (params) => {
-    const { sortProperty, categoryId } = params;
+    const { sortBy, categoryId } = params;
     const { data } = await axios.get(
       `https://64f6dedc9d7754084952b2b8.mockapi.io/pizzas/?sortBy=${
-        sortProperty === "rating" ? sortProperty + "&order=desc" : sortProperty
+        sortBy === "rating" ? sortBy + "&order=desc" : sortBy
       }&category=${categoryId === 0 ? "" : categoryId}`
     );
     return data;
