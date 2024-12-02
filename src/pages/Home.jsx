@@ -12,7 +12,7 @@ import { fetchPizzas } from "../redux/slices/pizzaSlice";
 
 export const Home = () => {
   const { searchValue } = React.useContext(SearchContext);
-  const sort = useSelector((state) => state.filterSlice.sort.sortProperty);
+  const { sortProperty } = useSelector((state) => state.filterSlice.sort);
   const categoryId = useSelector((state) => state.filterSlice.categoryId);
   const { items, status } = useSelector((state) => state.pizza);
   const dispatch = useDispatch();
@@ -22,8 +22,8 @@ export const Home = () => {
   };
 
   React.useEffect(() => {
-    dispatch(fetchPizzas({ sort, categoryId }));
-  }, [categoryId, sort.sortProperty]);
+    dispatch(fetchPizzas({ sortProperty, categoryId }));
+  }, [categoryId, sortProperty]);
 
   const skeleton = [...new Array(6)].map((_, i) => <Skeleton key={i} />);
   const pizzas = items
