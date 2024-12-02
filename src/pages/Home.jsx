@@ -12,7 +12,8 @@ import { fetchPizzas } from "../redux/slices/pizzaSlice";
 
 export const Home = () => {
   const { searchValue } = React.useContext(SearchContext);
-  const { sort, categoryId } = useSelector((state) => state.filterSlice);
+  const sort = useSelector((state) => state.filterSlice.sort.sortProperty);
+  const categoryId = useSelector((state) => state.filterSlice.categoryId);
   const { items, status } = useSelector((state) => state.pizza);
   const dispatch = useDispatch();
 
