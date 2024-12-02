@@ -23,6 +23,7 @@ export const Home = () => {
 
   React.useEffect(() => {
     const sortProperty = sort.sortProperty;
+    console.log(sortProperty);
     dispatch(fetchPizzas({ sortProperty, categoryId }));
   }, [categoryId, sortProperty]);
 
