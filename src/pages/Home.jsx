@@ -12,7 +12,6 @@ import { fetchPizzas } from "../redux/slices/pizzaSlice";
 
 export const Home = () => {
   const { searchValue } = React.useContext(SearchContext);
-
   const { sort, categoryId } = useSelector((state) => state.filterSlice);
   const { items, status } = useSelector((state) => state.pizza);
   const dispatch = useDispatch();
@@ -20,25 +19,6 @@ export const Home = () => {
   const onChangeCategory = (id) => {
     dispatch(setCategoryId(id));
   };
-
-  // const fetchPizzas = async () => {
-  //   setIsLoading(true);
-  //   try {
-  //     const res = await axios.get(
-  //       `https://64f6dedc9d7754084952b2b8.mockapi.io/pizzas/?sortBy=${
-  //         sort.sortProperty === "rating"
-  //           ? sort.sortProperty + "&order=desc"
-  //           : sort.sortProperty
-  //       }&category=${categoryId === 0 ? "" : categoryId}`
-  //     );
-  //     dispatch(setItems(res.data));
-  //   } catch (error) {
-  //     alert("Ошибка при получении пицц");
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  //   window.scrollTo(0, 0);
-  // };
 
   React.useEffect(() => {
     dispatch(fetchPizzas({ sort, categoryId }));
