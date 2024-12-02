@@ -14,7 +14,7 @@ export const Home = () => {
   const { searchValue } = React.useContext(SearchContext);
   const { categoryId, sort } = useSelector((state) => state.filterSlice);
   const { items, status } = useSelector((state) => state.pizza);
-  const sortProperty = sort.sortProperty;
+
   const dispatch = useDispatch();
 
   const onChangeCategory = (id) => {
@@ -22,6 +22,7 @@ export const Home = () => {
   };
 
   React.useEffect(() => {
+    const sortProperty = sort.sortProperty;
     dispatch(fetchPizzas({ sortProperty, categoryId }));
   }, [categoryId, sortProperty]);
 
