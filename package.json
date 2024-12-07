@@ -1,7 +1,7 @@
 {
   "name": "pizza",
   "version": "0.1.0",
-  "homepage": "https://Nikita-w-developer.github.io/NoTS",
+  "homepage": "https://Nikita-w-developer.github.io/NoTS/",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.3.0",
